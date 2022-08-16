@@ -1,27 +1,35 @@
 import { useEffect } from "react";
+import { importResource, removeResource, removeMultipleResources } from "./helpers/common-functions";
 import logo from './logo.svg';
 import './App.css';
 
+const CONTACT_REQUEST_EMBEDDED = process.env.REACT_APP_CONTACT_REQUEST_EMBEDDED_URL;
+console.log('HOLA ', CONTACT_REQUEST_EMBEDDED, process.env)
 function App() {
-  useEffect(() => {
-    window.dataLayer.push({ event: 'test', gtm: { uniqueEventId: 1 }, embeddedId: 1 })
-  }, [])
+    useEffect(() => {
+        setTimeout(() => {
+            importResource({
+                id: 'contact-embedded-by-suite',
+                script: CONTACT_REQUEST_EMBEDDED,
+            });
+        }, 10);
+
+        return () => {
+            removeResource('#contact-embedded-by-suite');
+            removeMultipleResources('.script-contact-request');
+            removeMultipleResources('.style-contact-request');
+        };
+    }, []);
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          <div
+              id="contactosByVecindario"
+              data-project-slug="orion"
+              data-button-style='{"backgroundColor": "aqua", "color": "#000", "shape": "square" }'
+          ></div>
       </header>
     </div>
   );
