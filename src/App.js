@@ -1,7 +1,12 @@
+import { useEffect } from "react";
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  useEffect(() => {
+    window.dataLayer.push({ event: 'test', gtm: { uniqueEventId: 1 }, embeddedId: 1 })
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
