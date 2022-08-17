@@ -4,6 +4,8 @@ import logo from './logo.svg';
 import './App.css';
 
 const CONTACT_REQUEST_EMBEDDED = process.env.REACT_APP_CONTACT_REQUEST_EMBEDDED_URL;
+
+console.log(window.dataLayer, window.dataLayerSuite, "DATA LAYER")
 console.log('HOLA ', CONTACT_REQUEST_EMBEDDED, process.env)
 function App() {
     useEffect(() => {
@@ -13,7 +15,10 @@ function App() {
                 script: CONTACT_REQUEST_EMBEDDED,
             });
         }, 10);
-
+        window.dataLayer.push({
+          event: 'testContainerLoad'
+        })
+      
         return () => {
             removeResource('#contact-embedded-by-suite');
             removeMultipleResources('.script-contact-request');
@@ -27,7 +32,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
           <div
               id="contactosByVecindario"
-              data-project-slug="orion"
+              data-project-slug="vecindario-living"
               data-button-style='{"backgroundColor": "aqua", "color": "#000", "shape": "square" }'
           ></div>
       </header>
