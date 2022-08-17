@@ -46,7 +46,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
           <div
               id="contactosByVecindario"
-              data-project-slug="vecindario-living"
+              data-project-slug="orion"
               data-button-style='{"backgroundColor": "aqua", "color": "#000", "shape": "square" }'
           ></div>
           <div
