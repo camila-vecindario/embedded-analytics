@@ -49,7 +49,9 @@ function App() {
               data-project-slug="orion"
               data-button-style='{"backgroundColor": "aqua", "color": "#000", "shape": "square" }'
           ></div>
-          <div
+          {
+              /*
+           <div
               id="simulatorByVecindario"
               data-textcolor='{"r":196,"g":210,"b":32,"a":1}'
               data-buttoncolor='{"r":41,"g":40,"b":15,"a":0.35}'
@@ -57,6 +59,10 @@ function App() {
               data-shape="square"
               data-projectslug="costa-azul"
           ></div>
+
+              * */
+
+          }
       </header>
     </div>
   );
